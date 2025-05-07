@@ -15,7 +15,7 @@ def load_tokenizer():
 # Load model
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("bilstm_misinformation_model.h5")
+    return tf.keras.models.load_model("bilstm_misinformation_model.keras")
 
 # Preprocess input
 def preprocess_text(text, tokenizer, maxlen=100):
