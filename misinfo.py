@@ -9,15 +9,16 @@ from tensorflow.keras.layers import LSTM, Bidirectional
 @st.cache_resource
 def load_tokenizer():
     with open('tokenizer.json', 'r', encoding='utf-8') as f:
-        tokenizer_json = f.read()  # FIXED INDENTATION
+        tokenizer_json = f.read()
     tokenizer = tokenizer_from_json(tokenizer_json)
-    return tokenizer  # FIXED: ADDED RETURN
+    return tokenizer
 
+# Load model
+@st.cache_resource
 def load_model():
     return tf.keras.models.load_model(
         "bilstm_misinformation_model.h5",
-        custom_objects={'LSTM': lambda **kwargs: LSTM(**{k: v for k, v in kwargs.items() if k != 'time_major'}),
-                        'Bidirectional': Bidirectional}
+        custom_objects={'LSTM': LSTM, 'Bidirectional': Bidirectional}
     )
 
 # Preprocess input
