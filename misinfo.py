@@ -9,7 +9,7 @@ import json
 def load_tokenizer():
     with open('tokenizer.json', 'r', encoding='utf-8') as f:
     tokenizer_json = f.read()
-tokenizer = tokenizer_from_json(tokenizer_json)
+    tokenizer = tokenizer_from_json(tokenizer_json)
 
 # Load model
 @st.cache_resource
