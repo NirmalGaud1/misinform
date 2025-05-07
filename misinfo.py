@@ -8,7 +8,7 @@ import json
 @st.cache_resource
 def load_tokenizer():
     with open('tokenizer.json', 'r', encoding='utf-8') as f:
-        tokenizer_json = json.load(f)
+        tokenizer_json = f.read()  # read as string, not parsed JSON
     tokenizer = tokenizer_from_json(tokenizer_json)
     return tokenizer
 
