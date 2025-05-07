@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import tokenizer_from_json
 import json
+from tensorflow.keras.layers import LSTM, Bidirectional
 
 # Load tokenizer from JSON
 @st.cache_resource
